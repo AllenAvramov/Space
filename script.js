@@ -1,5 +1,5 @@
 const PARTICLE_NUM = 1000;
-const PARTICLE_BASE_RADIUS = 0.5;
+const PARTICLE_BASE_RADIUS = 1;
 const FL = 500;
 const DEFAULT_SPEED = 2.0;
 const BOOST_SPEED = 300;
