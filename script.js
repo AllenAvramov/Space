@@ -35,13 +35,10 @@ window.addEventListener('load', function () {
     console.log('Mouse:', mouseX, mouseY);
   }, false);
 
-  document.addEventListener('mousedown', function () {
-    targetSpeed = BOOST_SPEED;
-  }, false);
+  document.addEventListener('mousedown', () => targetSpeed = BOOST_SPEED);
 
-  document.addEventListener('mouseup', function () {
-    targetSpeed = DEFAULT_SPEED;
-  }, false);
+  document.addEventListener('mouseup', () => targetSpeed = DEFAULT_SPEED);
+  
 
   setInterval(loop, 1000 / 60);
 });
