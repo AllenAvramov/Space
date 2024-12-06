@@ -1,4 +1,4 @@
-const PARTICLE_NUM = 500;
+const PARTICLE_NUM = 1500;
 const PARTICLE_BASE_RADIUS = 0.5;
 const FL = 500;
 const DEFAULT_SPEED = 2.0;
@@ -11,12 +11,20 @@ window.addEventListener('load', function () {
   canvas = document.getElementById('c');
   context = canvas.getContext('2d');
 
+  const colors = [
+    'rgb(105, 105, 105)', // Dim Gray
+    'rgb(112, 128, 144)', // Slate Gray
+    'rgb(139, 69, 19)',   // Saddle Brown
+    'rgb(205, 133, 63)',  // Peru
+  ];
+
+
   const resize = function () {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     centerX = canvas.width * 0.5;
     centerY = canvas.height * 0.5;
-    context.fillStyle = 'rgb(255, 255, 255)';
+    context.fillStyle = colors[Math.floor(Math.random() * colors.length)];
   };
 
   window.addEventListener('resize', resize);
@@ -32,7 +40,6 @@ window.addEventListener('load', function () {
   document.addEventListener('mousemove', function (e) {
     mouseX = e.clientX;
     mouseY = e.clientY;
-    console.log('Mouse:', mouseX, mouseY);
   }, false);
 
   document.addEventListener('mousedown', () => targetSpeed = BOOST_SPEED);
