@@ -66,8 +66,8 @@ function loop() {
   const cos = Math.cos;
   const sin = Math.sin;
 
-  const perspectiveCenterX = centerX + (mouseX - centerX) * 0.2;
-  const perspectiveCenterY = centerY + (mouseY - centerY) * 0.2;
+  const perspectiveCenterX = centerX + (mouseX - centerX) * 0.5;
+  const perspectiveCenterY = centerY + (mouseY - centerY) * 0.5;
 
   context.beginPath();
   for (let i = 0; i < PARTICLE_NUM; i++) {
