@@ -19,7 +19,7 @@ window.addEventListener('load', function () {
     context.fillStyle = 'rgb(255, 255, 255)';
   };
 
-  document.addEventListener('resize', resize);
+  window.addEventListener('resize', resize);
   resize();
 
   mouseX = centerX;
@@ -32,6 +32,7 @@ window.addEventListener('load', function () {
   document.addEventListener('mousemove', function (e) {
     mouseX = e.clientX;
     mouseY = e.clientY;
+    console.log('Mouse:', mouseX, mouseY);
   }, false);
 
   document.addEventListener('mousedown', function () {
@@ -61,6 +62,9 @@ function loop() {
   const cos = Math.cos;
   const sin = Math.sin;
 
+  const perspectiveCenterX = centerX + (mouseX - centerX) * 0.2;
+  const perspectiveCenterY = centerY + (mouseY - centerY) * 0.2;
+
   context.beginPath();
   for (let i = 0; i < PARTICLE_NUM; i++) {
     let p = particles[i];
@@ -71,8 +75,8 @@ function loop() {
       continue;
     }
 
-    cx = p.x - centerX;
-    cy = p.y - centerY;
+    cx = p.x - perspectiveCenterX;
+    cy = p.y - perspectiveCenterY;
 
     x = cx / p.z * FL;
     y = cy / p.z * FL;
